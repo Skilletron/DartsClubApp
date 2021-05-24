@@ -10,6 +10,8 @@ public class MainCalc : MonoBehaviour
     public PlayerController playerController;
     public GameMode gameMode;
     public AudioSource audio;
+    public GameObject Error;
+    public Animator Error_animation;
     public AudioClip clip;
 
     public void Start()
@@ -43,19 +45,28 @@ public class MainCalc : MonoBehaviour
         {
             result = 0;
             counter--;
+            Error_animation.Play("Errror_Anim_Start");
+            Error_animation.SetBool("error", true);
+       
+
+
         }
-        counter++;
-        gameMode.Gamemode[player] = gameMode.Gamemode[player] - result;
-        small_score[player] += result;
-        playerController.small_score[player].GetComponent<Text>().text = small_score[player].ToString();
-        playerController.Counter[player].GetComponent<Text>().text = counter.ToString();
-        playerController.Score[player].GetComponent<Text>().text = gameMode.Gamemode[player].ToString();
-        playerController.Score_History[player].GetComponent<Text>().text += " "+result;
+        Error_animation.SetBool("error", false);
+        if (result != 0)
+        {
+            counter++;
+            gameMode.Gamemode[player] = gameMode.Gamemode[player] - result;
+            small_score[player] += result;
+            playerController.small_score[player].GetComponent<Text>().text = small_score[player].ToString();
+            playerController.Counter[player].GetComponent<Text>().text = counter.ToString();
+            playerController.Score[player].GetComponent<Text>().text = gameMode.Gamemode[player].ToString();
+            playerController.Score_History[player].GetComponent<Text>().text += " " + result;
+        }
         if (gameMode.Gamemode[player] <= 0)
         {
             playerController.Score[player].GetComponent<Text>().text = "0";
         }
-       
+     
 
 
     }
@@ -74,15 +85,22 @@ public class MainCalc : MonoBehaviour
             result = 0;
             player++;
             playerController.Counter[player - 1].GetComponent<Text>().text = "0";
+            for(int c = 0;c != playerController.Player.Length; c++)
+            {
+                playerController.Player_image[c].GetComponent<Image>().color = new Color(1f, 1f, 1f);
+            }
             playerController.Player_image[player].GetComponent<Image>().color = new Color(1f, 0.5f, 0.5f);
-            playerController.Player_image[player - 1].GetComponent<Image>().color = new Color(1f, 1f, 1f);
-            playerController.Player_image[player + 1].GetComponent<Image>().color = new Color(1f, 1f, 1f);
+        
         }
         if (player == playerController.i)
         {
             player = 0;
+            for (int c = 0; c != playerController.Player.Length; c++)
+            {
+                playerController.Player_image[c].GetComponent<Image>().color = new Color(1f, 1f, 1f);
+            }
             playerController.Player_image[player].GetComponent<Image>().color = new Color(1f, 0.5f, 0.5f);
-            playerController.Player_image[player - 1].GetComponent<Image>().color = new Color(1f, 1f, 1f);
+    
         }
 
     }

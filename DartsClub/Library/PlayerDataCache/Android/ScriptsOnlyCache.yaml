@@ -653,11 +653,11 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 450534d4427500f2790e5be61142068b
+      Hash: ae080e24d23820e20610f64ceac0bea9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MainCalc
   platform: 13
   scenePathNames:
   - Assets/Scenes/Game.unity
-  playerPath: C:/Users/Skilletron/Desktop/test.0.0.2.apk
+  playerPath: C:/Users/Skilletron/Desktop/test.0.0.3.apk
