@@ -44,7 +44,6 @@ public class MainCalc : MonoBehaviour
         if (result > 180)
         {
             result = 0;
-            counter--;
             Error_animation.Play("Errror_Anim_Start");
             Error_animation.SetBool("error", true);
        
