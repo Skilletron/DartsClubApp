@@ -4172,7 +4172,6 @@ GameObject:
   m_Component:
   - component: {fileID: 384686837}
   - component: {fileID: 384686835}
-  - component: {fileID: 384686836}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4223,14 +4222,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &384686836
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384686834}
-  m_Enabled: 1
 --- !u!4 &384686837
 Transform:
   m_ObjectHideFlags: 0
@@ -17649,6 +17640,19 @@ MonoBehaviour:
   name_winner: {fileID: 1202010608}
   Winner_animation: {fileID: 263831191}
   winner: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+--- !u!114 &1434619011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434619008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f0a4d2a013d0a418a86f092050ebd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  circleSprite: {fileID: 0}
 --- !u!114 &1436242344 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7894712693669190536, guid: e7ef37a4447edd248a9fb9edeab7ff6d,

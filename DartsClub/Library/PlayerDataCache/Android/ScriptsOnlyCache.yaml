@@ -6,6 +6,7 @@ ScriptsOnlyBuild:
     - MainCalc
     - Options
     - PlayerController
+    - Window_Graph
     - Winner
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
@@ -89,33 +90,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11788}
     - Class: 114
-      Script: {instanceID: 12108}
+      Script: {instanceID: 11818}
     - Class: 114
-      Script: {instanceID: 12280}
+      Script: {instanceID: 12110}
     - Class: 114
-      Script: {instanceID: 12630}
+      Script: {instanceID: 12282}
     - Class: 114
-      Script: {instanceID: 13124}
+      Script: {instanceID: 12632}
     - Class: 114
-      Script: {instanceID: 13270}
+      Script: {instanceID: 13126}
     - Class: 114
-      Script: {instanceID: 13322}
+      Script: {instanceID: 13272}
     - Class: 114
-      Script: {instanceID: 13574}
+      Script: {instanceID: 13324}
     - Class: 114
-      Script: {instanceID: 13746}
+      Script: {instanceID: 13576}
     - Class: 114
-      Script: {instanceID: 13810}
+      Script: {instanceID: 13748}
     - Class: 114
-      Script: {instanceID: 14250}
+      Script: {instanceID: 13812}
     - Class: 114
-      Script: {instanceID: 14362}
+      Script: {instanceID: 14252}
     - Class: 114
-      Script: {instanceID: 14404}
+      Script: {instanceID: 14364}
     - Class: 114
-      Script: {instanceID: 14428}
+      Script: {instanceID: 14406}
     - Class: 114
-      Script: {instanceID: 14468}
+      Script: {instanceID: 14430}
+    - Class: 114
+      Script: {instanceID: 14470}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -277,6 +280,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: PhysicsRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 4ae5b67f312d2eb54e8bd08403c48989
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Window_Graph
   - hash:
       serializedVersion: 2
       Hash: bd3cf68c8964d3c66d1c43f4f98508c9
@@ -658,4 +667,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/Game.unity
-  playerPath: C:/Users/Skilletron/Desktop/DartsClubApp/test.0.0.5.apk
+  playerPath: C:/Users/Skilletron/Desktop/DartsClubApp/test.0.0.6.apk
