@@ -1,21 +1,30 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-
+using CodeMonkey.Utils;
 
 public class Window_Graph : MonoBehaviour {
 
     [SerializeField] private Sprite circleSprite;
     private RectTransform graphContainer;
+    private RectTransform labelTemplateX;
+    private RectTransform labelTemplateY;
+    public GameObject Background;
+
 
     private void Awake() {
         graphContainer = transform.Find("graphContainer").GetComponent<RectTransform>();
+        labelTemplateX = graphContainer.Find("labelTemplateX").GetComponent<RectTransform>();
+        labelTemplateY = graphContainer.Find("labelTemplateY").GetComponent<RectTransform>();
 
-        List<int> valueList = new List<int>() { 5, 98, 56, 45, 30, 22, 17, 15, 13, 17, 25, 37, 40, 36, 33 };
-        ShowGraph(valueList);
+
+        List<int> valueList = new List<int>() { 5, 98, 56, 45, 30, 22, 17, 15, 13, 17 };
+        ShowGraph(valueList, (int _i) => 
+        "" + (_i+1), (float _f) => "" + Mathf.RoundToInt(_f));
     }
 
     private GameObject CreateCircle(Vector2 anchoredPosition) {
@@ -30,7 +39,14 @@ public class Window_Graph : MonoBehaviour {
         return gameObject;
     }
 
-    private void ShowGraph(List<int> valueList) {
+    private void ShowGraph(List<int> valueList, Func<int, string> getAxisLabelX = null, Func<float, string> getAxisLabelY = null) {
+        if (getAxisLabelX == null) {
+            getAxisLabelX = delegate (int _i) { return _i.ToString(); };
+        }
+        if (getAxisLabelY == null) {
+            getAxisLabelY = delegate (float _f) { return Mathf.RoundToInt(_f).ToString(); };
+        }
+
         float graphHeight = graphContainer.sizeDelta.y;
         float yMaximum = 100f;
         float xSize = 50f;
@@ -44,6 +60,28 @@ public class Window_Graph : MonoBehaviour {
                 CreateDotConnection(lastCircleGameObject.GetComponent<RectTransform>().anchoredPosition, circleGameObject.GetComponent<RectTransform>().anchoredPosition);
             }
             lastCircleGameObject = circleGameObject;
+
+            RectTransform labelX = Instantiate(labelTemplateX);
+            labelX.SetParent(graphContainer, false);
+            labelX.gameObject.SetActive(true);
+            labelX.anchoredPosition = new Vector2(xPosition, 0f);
+            labelX.GetComponent<Text>().text = getAxisLabelX(i);
+            Background.transform.localPosition = new Vector3(transform.localPosition.x + 200.0f, transform.localPosition.y, transform.localPosition.z);
+
+
+
+        }
+
+        int separatorCount = 10;
+        for (int i = 0; i <= separatorCount; i++) {
+            RectTransform labelY = Instantiate(labelTemplateY);
+            labelY.SetParent(graphContainer, false);
+            labelY.gameObject.SetActive(true);
+            float normalizedValue = i * 1f / separatorCount;
+            labelY.anchoredPosition = new Vector2(0f, normalizedValue * graphHeight);
+            labelY.GetComponent<Text>().text = getAxisLabelY(normalizedValue * yMaximum);
+            
+     
         }
     }
 
@@ -58,7 +96,7 @@ public class Window_Graph : MonoBehaviour {
         rectTransform.anchorMax = new Vector2(0, 0);
         rectTransform.sizeDelta = new Vector2(distance, 3f);
         rectTransform.anchoredPosition = dotPositionA + dir * distance * .5f;
-        rectTransform.localEulerAngles = new Vector3(0, 0);
+        rectTransform.localEulerAngles = new Vector3(0, 0, UtilsClass.GetAngleFromVectorFloat(dir));
     }
 
 }
