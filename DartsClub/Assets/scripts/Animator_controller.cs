@@ -7,30 +7,61 @@ public class Animator_controller : MonoBehaviour
 {
     public PlayerController playerController;
     public MainCalc mainCalc;
-    public Animator Gamemode_animation;
-    public Animator EnterName_animation;
-    public Animator History_animation;
-    public Animator Options_animation;
+    public GameObject Game, History, Options, Statistic;
+    public Animator Gamemode_animation, Options_animation, History_animation, EnterName_animation,Statistic_animation;
     public InputField name;
     public AudioSource audio;
     public AudioClip clip;
-        
 
+    private void Start()
+    {
+        Options.GetComponent<Canvas>().sortingOrder = 0;
+        Game.GetComponent<Canvas>().sortingOrder = 1;
+        History.GetComponent<Canvas>().sortingOrder = 0;
+        Statistic.GetComponent<Canvas>().sortingOrder = 0;
+    }
     public void OnClickButtonOption()
     {
         audio.PlayOneShot(clip);
+        Options.GetComponent<Canvas>().sortingOrder = 1;
+        Game.GetComponent<Canvas>().sortingOrder = 0;
+        History.GetComponent<Canvas>().sortingOrder = 0;
+        Statistic.GetComponent<Canvas>().sortingOrder = 0;
         Options_animation.SetBool("PlayerClickOptions", true);
-    
+        Statistic_animation.SetBool("StatisticClick", false);
+        History_animation.SetBool("PlayerClickHistory", false);
+
     }
     public void OnClickButtonHistory()
     {
         audio.PlayOneShot(clip);
+        Options.GetComponent<Canvas>().sortingOrder = 0;
+        Game.GetComponent<Canvas>().sortingOrder = 0;
+        History.GetComponent<Canvas>().sortingOrder = 1;
+        Statistic.GetComponent<Canvas>().sortingOrder = 0;
         History_animation.SetBool("PlayerClickHistory", true);
+        Statistic_animation.SetBool("StatisticClick", false);
         Options_animation.SetBool("PlayerClickOptions", false);
     }
     public void OnClickButtonGame()
     {
+        Options.GetComponent<Canvas>().sortingOrder = 0;
+        Game.GetComponent<Canvas>().sortingOrder = 1;
+        History.GetComponent<Canvas>().sortingOrder = 0;
+        Statistic.GetComponent<Canvas>().sortingOrder = 0;
         audio.PlayOneShot(clip);
+        Statistic_animation.SetBool("StatisticClick", false);
+        History_animation.SetBool("PlayerClickHistory", false);
+        Options_animation.SetBool("PlayerClickOptions", false);
+    }
+    public void OnClickButtonStatistic()
+    {
+        Options.GetComponent<Canvas>().sortingOrder = 0;
+        Game.GetComponent<Canvas>().sortingOrder = 0;
+        History.GetComponent<Canvas>().sortingOrder = 0;
+        Statistic.GetComponent<Canvas>().sortingOrder = 1;
+        audio.PlayOneShot(clip);
+        Statistic_animation.SetBool("StatisticClick", true);
         History_animation.SetBool("PlayerClickHistory", false);
         Options_animation.SetBool("PlayerClickOptions", false);
     }

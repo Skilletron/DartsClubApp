@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class MainCalc : MonoBehaviour
 {
     public string x,temp;
-    public int result, counter, player;
+    public int result, counter, player,maxresult;
     public int[] small_score;
     public PlayerController playerController;
     public GameMode gameMode;
@@ -14,9 +14,11 @@ public class MainCalc : MonoBehaviour
     public Animator Error_animation;
     public AudioClip clip;
 
+ 
     public void Start()
     {
         temp = "0";
+        maxresult = 0;
         player = 0;
         playerController.Player_image[player].GetComponent<Image>().color = new Color(1f, 0.5f, 0.5f);
     }
@@ -80,6 +82,11 @@ public class MainCalc : MonoBehaviour
  
         if (counter >= 3)
         {
+            if(result > maxresult)
+            {
+                maxresult = result;
+            }
+
             counter = 0;
             result = 0;
             player++;
@@ -89,6 +96,7 @@ public class MainCalc : MonoBehaviour
                 playerController.Player_image[c].GetComponent<Image>().color = new Color(1f, 1f, 1f);
             }
             playerController.Player_image[player].GetComponent<Image>().color = new Color(1f, 0.5f, 0.5f);
+           
         
         }
         if (player == playerController.i)

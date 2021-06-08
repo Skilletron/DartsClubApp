@@ -85,10 +85,13 @@
     <Compile Include="Assets\CodeMonkey\Utils\World_Sprite.cs" />
     <Compile Include="Assets\Graph\Scripts\Window_Graph.cs" />
     <Compile Include="Assets\scripts\Animator_controller.cs" />
+    <Compile Include="Assets\scripts\DataManager.cs" />
     <Compile Include="Assets\scripts\GameMode.cs" />
     <Compile Include="Assets\scripts\MainCalc.cs" />
     <Compile Include="Assets\scripts\Options.cs" />
     <Compile Include="Assets\scripts\PlayerController.cs" />
+    <Compile Include="Assets\scripts\PlayerData.cs" />
+    <Compile Include="Assets\scripts\SaveAllGame.cs" />
     <Compile Include="Assets\scripts\Winner.cs" />
     <None Include="Assets\CodeMonkey\README.txt" />
     <None Include="Assets\Pixel Font - Tripfive\_README.txt" />

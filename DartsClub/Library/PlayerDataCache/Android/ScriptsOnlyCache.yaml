@@ -3,10 +3,12 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - Animator_controller
     - CodeMonkey.Assets
+    - DataManager
     - GameMode
     - MainCalc
     - Options
     - PlayerController
+    - SaveAllGame
     - Window_Graph
     - Winner
     Unity.2D.Animation.Editor.dll:
@@ -22,8 +24,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -41,6 +45,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.InputField
     - UnityEngine.UI.Mask
+    - UnityEngine.UI.RawImage
     - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.Slider
@@ -83,47 +88,51 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11560}
     - Class: 114
-      Script: {instanceID: 11610}
+      Script: {instanceID: 11612}
     - Class: 114
-      Script: {instanceID: 11714}
+      Script: {instanceID: 11716}
     - Class: 114
-      Script: {instanceID: 11784}
+      Script: {instanceID: 11786}
     - Class: 114
-      Script: {instanceID: 11794}
+      Script: {instanceID: 11796}
     - Class: 114
-      Script: {instanceID: 12118}
+      Script: {instanceID: 11908}
     - Class: 114
-      Script: {instanceID: 12290}
+      Script: {instanceID: 12122}
     - Class: 114
-      Script: {instanceID: 12586}
+      Script: {instanceID: 12294}
     - Class: 114
-      Script: {instanceID: 12642}
+      Script: {instanceID: 12590}
     - Class: 114
-      Script: {instanceID: 13144}
+      Script: {instanceID: 12646}
     - Class: 114
-      Script: {instanceID: 13290}
+      Script: {instanceID: 13038}
     - Class: 114
-      Script: {instanceID: 13342}
+      Script: {instanceID: 13148}
     - Class: 114
-      Script: {instanceID: 13596}
+      Script: {instanceID: 13294}
     - Class: 114
-      Script: {instanceID: 13774}
+      Script: {instanceID: 13346}
     - Class: 114
-      Script: {instanceID: 13838}
+      Script: {instanceID: 13600}
     - Class: 114
-      Script: {instanceID: 14280}
+      Script: {instanceID: 13778}
     - Class: 114
-      Script: {instanceID: 14394}
+      Script: {instanceID: 13842}
     - Class: 114
-      Script: {instanceID: 14412}
+      Script: {instanceID: 14284}
     - Class: 114
-      Script: {instanceID: 14444}
+      Script: {instanceID: 14398}
     - Class: 114
-      Script: {instanceID: 14468}
+      Script: {instanceID: 14416}
     - Class: 114
-      Script: {instanceID: 14508}
+      Script: {instanceID: 14448}
     - Class: 114
-      Script: {instanceID: 16808}
+      Script: {instanceID: 14472}
+    - Class: 114
+      Script: {instanceID: 14512}
+    - Class: 114
+      Script: {instanceID: 82526}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -299,6 +308,12 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DataManager
+  - hash:
+      serializedVersion: 2
       Hash: cf9f5cf2c3145a37ac07f00e50e460f9
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -401,7 +416,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 1274cb8ae1eb153ec72ff03ef304025f
+      Hash: 70d7c906ae32cd311b161da88eb88b14
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Window_Graph
@@ -521,7 +536,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: e2590ed89a26d3bd4bc75d6d4ea542ff
+      Hash: c7306d60a8e7e2eb4b1330ad846de0de
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Options
@@ -563,7 +578,7 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: 3021bc2f56f6fd4e4e8f466a706b8af9
+      Hash: 289c65b7700c1f81c81d21f3fc7da5b9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Animator_controller
@@ -689,7 +704,7 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
-      Hash: a726e66f6c42b0f5508bc5b569577711
+      Hash: 87ebc5e3479638c2e3153694d495dc18
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Winner
@@ -707,11 +722,17 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: ae080e24d23820e20610f64ceac0bea9
+      Hash: c71e828dee5498bb37f90e0fecb00e81
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MainCalc
+  - hash:
+      serializedVersion: 2
+      Hash: 5a4c738d80c9e7b4e26fbb71d5c61923
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SaveAllGame
   platform: 13
   scenePathNames:
   - Assets/Scenes/Game.unity
-  playerPath: C:/Users/Skilletron/Desktop/DartsClubApp/test.0.0.7.apk
+  playerPath: C:/Users/Skilletron/Desktop/DartsClubApp/test.0.1.2.apk

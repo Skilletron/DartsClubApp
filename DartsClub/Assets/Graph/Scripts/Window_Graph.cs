@@ -13,16 +13,27 @@ public class Window_Graph : MonoBehaviour {
     private RectTransform graphContainer;
     private RectTransform labelTemplateX;
     private RectTransform labelTemplateY;
+    public PlayerData playerdata;
+    public DataManager dataManager;
     public GameObject Background;
+    public Winner winner;
 
+ 
+    private void Start() {
+        dataManager.data.m = dataManager.data.m - 1;
+      
+        if (winner.m > 10 || dataManager.data.m > 10)
+        {
+            winner.m = 0;
+            dataManager.data.m = 0;
+        }
 
-    private void Awake() {
         graphContainer = transform.Find("graphContainer").GetComponent<RectTransform>();
         labelTemplateX = graphContainer.Find("labelTemplateX").GetComponent<RectTransform>();
         labelTemplateY = graphContainer.Find("labelTemplateY").GetComponent<RectTransform>();
 
 
-        List<int> valueList = new List<int>() { 5, 98, 56, 45, 30, 22, 17, 15, 13, 17 };
+        List<int> valueList = new List<int>() { winner.statistic_day[0], winner.statistic_day[1], winner.statistic_day[2], winner.statistic_day[3], winner.statistic_day[4], winner.statistic_day[5], winner.statistic_day[6], winner.statistic_day[7], winner.statistic_day[8], winner.statistic_day[9]};
         ShowGraph(valueList, (int _i) => 
         "" + (_i+1), (float _f) => "" + Mathf.RoundToInt(_f));
     }
